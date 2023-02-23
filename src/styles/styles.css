@@ -1,0 +1,298 @@
+.flex {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+}
+
+/*  ----------  ----------  Aligns  ----------  ----------  */
+.vertical {
+  flex-direction: column !important;
+}
+
+.center {
+  justify-content: center;
+  align-items: center;
+}
+
+.justify-start {
+  justify-content: flex-start !important;
+}
+
+.align-start {
+  align-items: flex-start !important;
+}
+
+.between {
+  justify-content: space-between;
+}
+
+.around {
+  justify-content: space-around;
+}
+
+.evenly {
+  justify-content: space-evenly;
+}
+
+.self-right {
+  align-self: flex-end;
+}
+
+/*  ----------  ----------  Wrapping  ----------  ----------  */
+.wrap {
+  flex-wrap: wrap;
+}
+
+/*  ----------  ----------  Spacing  ----------  ----------  */
+.gap-col-1 {
+  column-gap: 8px;
+}
+
+.gap-col-2 {
+  column-gap: 16px;
+}
+
+.gap-row-2 {
+  row-gap: 16px;
+}
+
+/*  ----------  ----------  Box  ----------  ----------  */
+.box100px {
+  width: 100px;
+  height: 120px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+}
+
+.detail-container {
+  display: flex;
+}
+
+.detail-box {
+  display: grid;
+  grid-template-columns: 5fr 1fr 5fr;
+  place-items: center;
+  width: 150px;
+  height: 70px;
+}
+
+.aside-container {
+  align-self: flex-end;
+}
+
+/*  ----------  ----------  Image  ----------  ----------  */
+.img-icon {
+  width: 35px;
+  height: 35px;
+}
+
+.img-user {
+  width: 45px;
+  height: 45px;
+}
+
+/*  ----------  ----------  Container Sizing  ----------  ----------  */
+.height100 {
+  height: 100%;
+}
+
+.height100vh {
+  height: 100vh;
+}
+
+.height90vh {
+  height: 90vh;
+}
+
+.height80vh {
+  height: 80vh;
+}
+
+.height80 {
+  height: 80%;
+}
+
+.width100 {
+  width: 100%;
+}
+
+.width90 {
+  width: 90%;
+}
+
+.width80 {
+  width: 80%;
+}
+
+.width70 {
+  width: 70%;
+}
+
+.width60 {
+  width: 60%;
+}
+
+.width40 {
+  width: 40%;
+}
+
+.width800px {
+  width: 800px;
+}
+
+.width150px {
+  width: 150px;
+}
+
+/*  ----------  ----------  Margin - Padding  ----------  ----------  */
+.m1 {
+  margin: 8px;
+}
+
+.m2 {
+  margin: 16px;
+}
+
+.mb1 {
+  margin-bottom: 8px;
+}
+
+.mb2 {
+  margin-bottom: 16px;
+}
+
+.m-neg2-left {
+  margin-left: -16px;
+}
+
+.p1 {
+  padding: 8px;
+}
+
+.p2 {
+  padding: 16px;
+}
+
+/*  ----------  ----------  Aligns  ----------  ----------  */
+.text-center {
+  text-align: center;
+}
+
+/*  ----------  ----------  Font Sizing  ----------  ----------  */
+h1 {
+  font-size: 2.8rem;
+}
+
+h2 {
+  font-size: 2.6rem;
+}
+
+h3 {
+  font-size: 2.4rem;
+}
+
+h4 {
+  font-size: 2.2rem;
+}
+
+h5 {
+  font-size: 2rem;
+}
+
+.text1 {
+  font-size: 4rem;
+}
+
+.text2 {
+  font-size: 1.6rem;
+}
+
+.text3 {
+  font-size: 1.4rem;
+}
+
+.text4 {
+  font-size: 1.2rem;
+}
+
+/*  ----------  ----------  Colors  ----------  ----------  */
+.grey {
+  color: #c2c2c2;
+}
+
+.whiteLight {
+  color: rgba(241, 241, 241, 0.6);
+}
+
+/*  ----------  ----------  Borders  ----------  ----------  */
+.line-bb {
+  border-bottom: 1px solid rgba(241, 241, 241, 0.6);
+}
+
+/*  ----------  ----------  bgGrey  ----------  ----------  */
+.bgGrey {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+* {
+  top: 0;
+  margin: 0;
+  padding: 0;
+  font-family: "Signika Negative", sans-serif;
+  color: #f1f1f1;
+}
+
+body {
+  background-image: url("/img/soleadonubes.jpg");
+  box-sizing: border-box;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 3rem;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.bgContainer {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 80%;
+  padding: 20px;
+  padding-left: 30px;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid red;
+}
+
+.col-izq {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 80%;
+  height: 100%;
+}
+
+.col-der {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 20%;
+  border-left: 1px solid rgba(241, 241, 241, 0.6);
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,93 @@
+@use './colors' as color;
+
+.flex{
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+
+/*  ----------  ----------  Aligns  ----------  ----------  */
+
+.vertical{
+    flex-direction: column!important;
+}
+.center{
+    justify-content: center;
+    align-items: center;
+}
+.justify-start {
+    justify-content: flex-start!important;
+}
+.align-start {
+    align-items: flex-start!important;
+}
+
+.between {
+    justify-content: space-between;
+}
+.around {
+    justify-content: space-around;
+}
+.evenly {
+    justify-content: space-evenly;
+}
+.self-right {
+    align-self: flex-end;
+}
+
+/*  ----------  ----------  Wrapping  ----------  ----------  */
+
+.wrap {
+    flex-wrap: wrap;
+}
+
+
+/*  ----------  ----------  Spacing  ----------  ----------  */
+
+.gap-col-1 {
+    column-gap: 8px;
+}
+.gap-col-2 {
+    column-gap: 16px;
+}
+.gap-row-2 {
+    row-gap: 16px
+}
+
+
+/*  ----------  ----------  Box  ----------  ----------  */
+
+.box100px {
+    width: 100px;
+    height: 120px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+.detail-container {
+    display: flex;
+    
+}
+
+.detail-box{
+    display: grid;
+    grid-template-columns: 5fr 1fr 5fr;
+    place-items: center;
+    width: 150px;
+    height: 70px;
+
+}
+
+.aside-container {
+    align-self: flex-end;
+}
+/*  ----------  ----------  Image  ----------  ----------  */
+
+
+.img-icon {
+    width: 35px;
+    height: 35px;
+}
+.img-user {
+    width: 45px;
+    height: 45px;
+}
