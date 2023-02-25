@@ -1,4 +1,5 @@
 @use './colors' as color;
+@use './mediaQuerys' as query;
 @use './containers';
 @use './utils';
 
@@ -21,7 +22,12 @@ body{
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 100vh;
     padding: 3rem;
+    @include query.mobile {
+        padding: 0;
+        height: 100vh;
+    }
 }
 #root {
     //box-sizing: border-box;
@@ -30,35 +36,31 @@ body{
     justify-content: center;
     align-items: center;
     width: 100%;
+    height: 100%;
+    @include query.mobile {
+        justify-content: flex-start;
+    }
 }
 
 .bgContainer {
     box-sizing: border-box;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
     width: 80%;
-    padding: 20px;
+    height: 90%;
+    padding: 1rem;
     padding-left: 30px;
     backdrop-filter: blur(10px);
     border-radius: 20px;
-    border: 1px solid red;
-}
-.col-izq{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 80%;
-    height: 100%;
     
+    @include query.mobile {
+        width: 95%;
+        padding:0;
+        justify-content: space-evenly;
+    }
 }
-.col-der {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    width: 20%;
-    border-left: 1px solid rgba(color.$white, .6);
-}
+
+
+

@@ -1,5 +1,5 @@
 @use './colors' as color;
-
+@use './mediaQuerys' as query;
 
 
 /*  ----------  ----------  Container Sizing  ----------  ----------  */
@@ -97,9 +97,15 @@ h5 {
 
 .text1 {
     font-size: 4rem;
+    @include query.mobile {
+        font-size: 2rem;
+    }
 }
 .text2 {
     font-size: 1.6rem;
+    @include query.mobile {
+        font-size: 1.2rem;
+    }
 }
 .text3 {
     font-size: 1.4rem;

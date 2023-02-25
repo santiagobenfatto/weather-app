@@ -68,21 +68,21 @@ const ContextProvider = ({children}) => {
 
 
             if( dataWeather.windDir >= 338 && dataWeather.windDir <= 22 ){
-                setCompass('North')
+                setCompass('N')
             }else if (dataWeather.windDir >= 23 && dataWeather.windDir <= 67 ){
-                setCompass('NorthEast')
+                setCompass('NE')
             }else if (dataWeather.windDir >= 68 && dataWeather.windDir <= 112 ){
-                setCompass('East')
+                setCompass('E')
             }else if (dataWeather.windDir >= 113 && dataWeather.windDir <= 157 ){
-                setCompass('SouthEast')
+                setCompass('SE')
             }else if (dataWeather.windDir >= 158 && dataWeather.windDir <= 202 ){
-                setCompass('South')
+                setCompass('S')
             }else if (dataWeather.windDir >= 203 && dataWeather.windDir <= 247 ){
-                setCompass('SouthWest')
+                setCompass('SW')
             }else if (dataWeather.windDir >= 248 && dataWeather.windDir <= 292 ){
-                setCompass('West')
+                setCompass('W')
             }else if (dataWeather.windDir >= 293 && dataWeather.windDir <= 337 ){
-                setCompass('NorthWest')
+                setCompass('NW')
             } else {
                 console.log("ok, tranqui, pero hubo un temita")
             }

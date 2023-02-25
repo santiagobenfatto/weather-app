@@ -4,7 +4,7 @@ const todayDate = new Date()
 const hora = todayDate.getHours()
 const minutos = todayDate.getMinutes()
 
-const minutosFormateados = ('0' + minutos).slice() -1
+const minutosFormateados = ('0' + minutos).slice(-2)
 
 /*  ==========  ==========  REVEER CUANDO LLEGUE A 0, VERIFICAR SI HAY 2 CIFRAS O 1  ==========  ==========  */
 
@@ -22,9 +22,6 @@ const diaActual = (semanaDias[diaNumSemana])
 
 
 
-
-
-
 const Display = () => {
 
 
@@ -32,7 +29,7 @@ const Display = () => {
         <>
         <h2 className='text1'>{hora}:{minutosFormateados}</h2>
         <p className='text4'>{diaActual} {diaNumMes}, {mesActual}, {anio}</p>
-        <h5>Hi, Santi. Good evening !</h5>
+        <p>Hi, Santi. Good evening !</p>
         </>
     );
 }

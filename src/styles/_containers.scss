@@ -1,4 +1,5 @@
 @use './colors' as color;
+@use './mediaQuerys' as query;
 
 .flex{
     display: flex;
@@ -35,12 +36,6 @@
     align-self: flex-end;
 }
 
-/*  ----------  ----------  Wrapping  ----------  ----------  */
-
-.wrap {
-    flex-wrap: wrap;
-}
-
 
 /*  ----------  ----------  Spacing  ----------  ----------  */
 
@@ -57,16 +52,15 @@
 
 /*  ----------  ----------  Box  ----------  ----------  */
 
+
 .box100px {
     width: 100px;
     height: 120px;
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
 }
-.detail-container {
-    display: flex;
-    
-}
+
+
 
 .detail-box{
     display: grid;
@@ -74,7 +68,13 @@
     place-items: center;
     width: 150px;
     height: 70px;
-
+    @include query.mobile {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        width: 150px;
+        height: 75px;
+        padding: .2rem;
+    }
 }
 
 .aside-container {
@@ -91,3 +91,38 @@
     width: 45px;
     height: 45px;
 }
+
+/*  ----------  ----------  Containers by name  ----------  ----------  */
+
+
+.detail-container, .forecaster-container {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+.detail-container {
+    @include query.mobile {
+        display: grid;
+        grid-template-columns: 4fr 4fr;
+        grid-template-rows: 5fr 5fr;
+        gap: .8rem;
+        width: 100%;
+        place-items: center;
+    }
+}
+.forecaster-container {
+    
+    @include query.mobile {
+        display: none;
+    }
+}
+
+
+.weather-container {
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 1rem;
+    width: 60%;
+}
+
+

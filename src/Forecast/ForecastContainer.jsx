@@ -3,7 +3,7 @@ import Forecast from './Forecast'
 
 const ForecastContainer = () => {
     return (
-        <div className='flex between wrap width80 gap-col-1 mb2'>
+        <div className='forecaster-container mb2'>
             <Forecast />
         </div>
     );
