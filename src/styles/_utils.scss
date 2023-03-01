@@ -84,6 +84,9 @@ h1{
 
 h2{
     font-size: 2.6rem;
+    @include query.mobile {
+        font-size: 2.2rem;
+    }
 }
 h3 {
     font-size: 2.4rem;;
@@ -97,8 +100,9 @@ h5 {
 
 .text1 {
     font-size: 4rem;
+    font-weight: 700;
     @include query.mobile {
-        font-size: 2rem;
+        font-size: 2.4rem;
     }
 }
 .text2 {

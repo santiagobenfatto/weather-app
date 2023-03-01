@@ -1,13 +1,12 @@
 import React from 'react';
-import DisplayContainer from './Display/DisplayContainer';
+import ClockDisplayContainer from './ClockDisplay/ClockDisplayContainer';
 import ForecastContainer from './Forecast/ForecastContainer';
-import User from './User/User';
 import WeatherContainer from './Weather/WeatherContainer';
 
 const Layer = () => {
     return (
         <div className='bgContainer'>
-            <DisplayContainer />
+            <ClockDisplayContainer />
             <WeatherContainer />
             <ForecastContainer />
         </div>

@@ -22,16 +22,16 @@ const diaActual = (semanaDias[diaNumSemana])
 
 
 
-const Display = () => {
+const ClockDisplay = () => {
 
 
     return (
         <>
         <h2 className='text1'>{hora}:{minutosFormateados}</h2>
         <p className='text4'>{diaActual} {diaNumMes}, {mesActual}, {anio}</p>
-        <p>Hi, Santi. Good evening !</p>
+        <p className='text2'>Hi, Santi. Good evening !</p>
         </>
     );
 }
 
-export default Display;
+export default ClockDisplay;

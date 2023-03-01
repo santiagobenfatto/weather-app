@@ -27,6 +27,7 @@ body{
     @include query.mobile {
         padding: 0;
         height: 100vh;
+        background-position: 90%;
     }
 }
 #root {
@@ -48,17 +49,22 @@ body{
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    width: 80%;
+    width: 60%;
     height: 90%;
     padding: 1rem;
     padding-left: 30px;
     backdrop-filter: blur(10px);
     border-radius: 20px;
-    
+    box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.75);
     @include query.mobile {
         width: 95%;
+        height: 95vh;
         padding:0;
-        justify-content: space-evenly;
+        justify-content: space-around;
+        backdrop-filter: none;
+        box-shadow: none;
+        border-radius: 0;
+        padding: .5rem;
     }
 }
 
