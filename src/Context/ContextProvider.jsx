@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, createContext, useState } from 'react';
-
+import { iconMap } from './icons.js';
 
 const contexto = createContext()
 const { Provider } = contexto
@@ -53,7 +53,7 @@ const ContextProvider = ({children}) => {
                     pressure : data.main.pressure,
                     sunrise: new Date(data.sys.sunrise * 1000).toLocaleTimeString("default"),
                     sunset: new Date (data.sys.sunset *1000).toLocaleTimeString("default"),
-                    iconCode: data.weather[0].id,
+                    iconCode: Number(data.weather[0].id),
                     message: data.weather[0].main,
                 })
             }
@@ -61,71 +61,46 @@ const ContextProvider = ({children}) => {
             
         fetchDataDaily()
     
+        const compassDirections = {
+            N: [0, 22],
+            NE: [23, 67],
+            E: [68, 112],
+            SE: [113, 157],
+            S: [158, 202],
+            SW: [203, 247],
+            W: [248, 292],
+            NW: [293, 337],
+          }
+          
+          const getCompassDirection = (degrees) => {
+            for (const [dir, range] of Object.entries(compassDirections)) {
+              if (degrees >= range[0] && degrees <= range[1]) {
+                return dir
+              }
+              if (degrees >= 338 && degrees <= 360){
+                return 'N'
+              }
+            }
+          }
+          
+          const compass = getCompassDirection(dataWeather.windDir)
+          setCompass(compass)
 
 
-        if (dataWeather.windDir <= 22 || dataWeather.windDir >= 338){
-            setCompass('N')
-        }else if (dataWeather.windDir >= 23 && dataWeather.windDir <= 67 ){
-            setCompass('NE')
-        }else if (dataWeather.windDir >= 68 && dataWeather.windDir <= 112 ){
-            setCompass('E')
-        }else if (dataWeather.windDir >= 113 && dataWeather.windDir <= 157 ){
-            setCompass('SE')
-        }else if (dataWeather.windDir >= 158 && dataWeather.windDir <= 202 ){
-            setCompass('S')
-        }else if (dataWeather.windDir >= 203 && dataWeather.windDir <= 247 ){
-            setCompass('SW')
-        }else if (dataWeather.windDir >= 248 && dataWeather.windDir <= 292 ){
-            setCompass('W')
-        }else if (dataWeather.windDir >= 293 && dataWeather.windDir <= 337 ){
-            setCompass('NW')
-        } else {
-            console.log("No hay más qué mostrar")
-        }
-    
-        const iconMap = {
-  '2xx': '/img/icons/thunderstorm.png',
-  '3xx': '/img/icons/lightrain.png',
-  '5xx': '/img/icons/rain.png',
-  '6xx': '/img/icons/snow.png',
-  '800': '/img/icons/sun.png',
-  '80x': '/img/icons/cloud.png',
-}
+        const getIconPath = (code) => {
+        //   const group = `${Math.floor(code / 100)}xx`;
+        //   console.log(group);
+          const icon = iconMap[code];
+          console.log(icon);
+          if (icon) {
+            return icon;
+          }
+        };
+        
+        const icon = getIconPath(dataWeather.iconCode);
+        setIcon(icon);
 
-const getIconPath = (code) => {
-  const group = `${Math.floor(code / 100)}xx`
-  const icon = iconMap[group]
 
-  if (icon) {
-    return icon
-  }
-
-  return 'There is no code yet'
-}
-
-const icon = getIconPath(dataWeather.iconCode)
-setIcon(icon)
-
-        if(dataWeather.iconCode <= 299){
-            setIcon('/img/icons/thunderstorm.png')
-        } else if (dataWeather.iconCode >= 300 && dataWeather.iconCode <= 321){
-            setIcon('/img/icons/lightrain.png')
-        } else if (dataWeather.iconCode >= 500 && dataWeather.iconCode <= 531){
-            setIcon('/img/icons/rain.png')
-        } else if (dataWeather.iconCode >= 600 && dataWeather.iconCode <= 631){
-            setIcon('/img/icons/rain.png')
-        } else if (dataWeather.iconCode === 800){
-            setIcon('/img/icons/sun.png')
-        } else if (dataWeather.iconCode === 801){
-            setIcon('/img/icons/cloud.png')
-        } else if (dataWeather.iconCode === 802){
-            setIcon('/img/icons/cloudy.png')
-        } else if (dataWeather.iconCode === 803){
-            setIcon('/img/icons/cloudy.png')
-        } else {
-                console.log('There is no code yet')
-        }    
-    
     }, [coords.location, dataWeather.iconCode, dataWeather.windDir]);
 
 
@@ -138,8 +113,6 @@ setIcon(icon)
     }
     
     
-
-
 
 
     return (

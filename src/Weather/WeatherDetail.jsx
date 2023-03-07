@@ -5,7 +5,6 @@ const WeatherDetail = () => {
 
     
     const { data, compass } =  useWeather()
-    console.log(compass)
 
     return (
         <div className='detail-container'>

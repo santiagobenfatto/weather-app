@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useWeather } from '../Context/ContextProvider';
+import { useForecaster } from '../Context/ForecastContextProvider';
 
 
 
@@ -7,12 +8,13 @@ import { useWeather } from '../Context/ContextProvider';
 const Forecast = () => {
     
     
-    
-    const { dataForecast } = useWeather()
-    
-    console.log(dataForecast)
+    const { dataForecast } = useForecaster()
 
-   
+    
+      
+
+
+
     return (
         <>
             <div className='flex vertical center around box100px'>
