@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import { useWeather } from '../Context/ContextProvider';
 import { useForecaster } from '../Context/ForecastContextProvider';
-
 
 
 
@@ -10,8 +8,42 @@ const Forecast = () => {
     
     const { dataForecast } = useForecaster()
 
+    const diaPorTemp = (data) => {
+        return data.reduce((acc, dia)=>{
+            const date = new Date(dia.dt_txt).getDate()
+
+            if(!acc[date]) {
+                acc[date] = []
+            }
+            acc[date].push(dia)
+            return acc
+        }, {})
+    }
     
-      
+    const temperaturaPorDia = diaPorTemp(dataForecast)
+    console.log(temperaturaPorDia)
+    //Output -> 8,9,10,11,12
+
+    let arrDias = []
+    const actualDate = new Date().getDate()
+    console.log(temperaturaPorDia[actualDate])
+    arrDias.push(temperaturaPorDia[actualDate + 1])
+    arrDias.push(temperaturaPorDia[actualDate + 2])
+    arrDias.push(temperaturaPorDia[actualDate + 3])
+    arrDias.push(temperaturaPorDia[actualDate + 4])
+    console.log(arrDias)
+    
+
+    
+
+
+
+    // for (const prop in temperaturaPorDia){
+    // const dias = temperaturaPorDia[prop]
+
+    // console.log(dias)
+        
+    //}
 
 
 
