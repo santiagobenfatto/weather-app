@@ -31,6 +31,17 @@ const ClockDisplay = () => {
         })
 
 
+
+        if (clockState.hora >= 7 && clockState.hora <=17){
+            document.body.classList.remove('noche')
+            document.body.classList.add('dia')
+        } else if (clockState.hora >=17 && clockState.hora <= 19){
+            document.body.classList.remove('dia')
+            document.body.classList.add('atardecer')
+        } else {
+            document.body.classList.add('noche')
+        }
+
         if(clockState.hora >= 6 && clockState.hora <=12){
             setMessage('morning')
         } else if(clockState.hora >= 13 && clockState.hora <= 19){

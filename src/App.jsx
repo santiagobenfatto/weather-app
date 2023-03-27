@@ -5,9 +5,8 @@ import ContextProvider from './Context/ContextProvider'
 
 
 
-function App() {
+const App = () => {
   
-
   return (
     <>
     <ContextProvider>
