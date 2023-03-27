@@ -2,7 +2,8 @@ import React from 'react';
 
 const Loading = () => {
     return (
-        <div>
+        <div className='center-loader'>
+            <div className="custom-loader"></div>
             <h2> LOADING DATA... </h2>
         </div>
     );

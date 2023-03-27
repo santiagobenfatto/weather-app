@@ -1,15 +1,24 @@
 import React from 'react';
 import ClockDisplayContainer from './ClockDisplay/ClockDisplayContainer';
-import ForecastContainer from './Forecast/ForecastContainer';
 import WeatherContainer from './Weather/WeatherContainer';
+import Loading from './Loading/Loading/'
+import { useWeather } from './Context/ContextProvider';
 
 const Layer = () => {
+    const {data} = useWeather()
+
     return (
+        
         <div className='bgContainer'>
-            <ClockDisplayContainer />
-            <WeatherContainer />
-            <ForecastContainer />
+        { data.feels ? 
+        <>
+        <ClockDisplayContainer />
+        <WeatherContainer />
+        </>
+        :    <Loading />
+        }
         </div>
+        
     );
 }
 

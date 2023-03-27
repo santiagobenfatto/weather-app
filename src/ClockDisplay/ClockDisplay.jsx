@@ -1,35 +1,58 @@
-import React from 'react';
-
-const todayDate = new Date()
-const hora = todayDate.getHours()
-const minutos = todayDate.getMinutes()
-
-const minutosFormateados = ('0' + minutos).slice(-2)
-
-/*  ==========  ==========  REVEER CUANDO LLEGUE A 0, VERIFICAR SI HAY 2 CIFRAS O 1  ==========  ==========  */
-
-
-const diaNumSemana = todayDate.getDay()
-const diaNumMes = todayDate.getDate()
-const mes = todayDate.getMonth() + 1
-const anio = todayDate.getFullYear()
-
-const meses = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-const semanaDias = ['Sunday', 'Mondat', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-
-const mesActual = (meses[mes])
-const diaActual = (semanaDias[diaNumSemana])
+import React, { useState ,useEffect } from 'react';
 
 
 
 const ClockDisplay = () => {
+    
+    const [ clockState, setClockState ] = useState({})
+    const [ date, setDate ] = useState({})
+    const [ dayAndMonth, setDayAndMonth ] = useState({})
+    const [ message, setMessage ] = useState('')
 
 
+    useEffect(() => {
+    
+        const todayDate = new Date()
+        
+        setDate({
+            diaNumSemana : todayDate.getDay(),
+            diaNumMes: todayDate.getDate(),
+            mes : todayDate.getMonth() + 1,
+            anio : todayDate.getFullYear(),
+        })
+
+        
+        const meses = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+        const semanaDias = ['Sunday', 'Mondat', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+        
+        setDayAndMonth({
+            mesActual: (meses[date.mes]),
+            diaActual: (semanaDias[date.diaNumSemana]),
+        })
+
+
+        if(clockState.hora >= 6 && clockState.hora <=12){
+            setMessage('morning')
+        } else if(clockState.hora >= 13 && clockState.hora <= 19){
+            setMessage('evening')
+        } else {
+            setMessage('night')
+        }
+
+        setClockState({
+           hora: todayDate.getHours(),
+           minutos: ('0' + todayDate.getMinutes()).slice(-2),
+        })
+        
+    }, [date, dayAndMonth, message, clockState.minutos]);
+    
+  
+    
     return (
         <>
-        <h2 className='text1'>{hora}:{minutosFormateados}</h2>
-        <p className='text4'>{diaActual} {diaNumMes}, {mesActual}, {anio}</p>
-        <p className='text2'>Hi, Santi. Good evening !</p>
+        <h2 className='text1'>{clockState.hora}:{clockState.minutos}</h2>
+        <p className='text5'>{dayAndMonth.diaActual} {date.diaNumMes}, {dayAndMonth.mesActual}, {date.anio}</p>
+        <p className='text4'>Hi stranger. Good {`${message}`} !</p>
         </>
     );
 }

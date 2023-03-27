@@ -105,6 +105,16 @@
     width: 100%;
 }
 .detail-container {
+
+    @include query.tablet {
+        display: grid;
+        grid-template-columns: 4fr 4fr;
+        grid-template-rows: 5fr 5fr;
+        gap: .8rem;
+        width: 100%;
+        place-items: center;
+    }
+
     @include query.mobile {
         display: grid;
         grid-template-columns: 4fr 4fr;
@@ -124,8 +134,8 @@
 
 .weather-container {
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-end;
     column-gap: 1rem;
     width: 100%;
 
@@ -136,7 +146,15 @@
 }
 .weather-detail {
     display: flex;
-    width: 100%;
+    width: 50%;
+    align-items: flex-end;
+    justify-content: flex-start;
+    column-gap: 2rem;
+
+    @include query.tablet {
+        width: 80%
+    }
+
     @include query.mobile {
         justify-content: flex-start;
         align-items: center;

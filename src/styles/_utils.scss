@@ -99,23 +99,26 @@ h5 {
 }
 
 .text1 {
-    font-size: 4rem;
+    font-size: 3rem;
     font-weight: 700;
     @include query.mobile {
         font-size: 2.4rem;
     }
 }
 .text2 {
-    font-size: 1.6rem;
+    font-size: 2.5rem;
     @include query.mobile {
         font-size: 1.2rem;
     }
 }
 .text3 {
-    font-size: 1.4rem;
+    font-size: 2rem;
 }
 .text4 {
-    font-size: 1.2rem;
+    font-size: 1.6rem;
+}
+.text5 {
+    font-size: 1.4rem;
 }
 
 
@@ -140,3 +143,25 @@ h5 {
 .bgGrey {
     background-color: rgba(255, 255, 255, 0.2);
 }
+
+
+/*  ----------  ----------  Loading   ----------  ----------  */
+
+.center-loader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+.custom-loader {
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:conic-gradient(#0000 10%,#e7e7e7);
+    -webkit-mask:radial-gradient(farthest-side,#0000 calc(100% - 8px),#000 0);
+    animation:s3 1s infinite linear;
+  }
+  @keyframes s3 {to{transform: rotate(1turn)}}

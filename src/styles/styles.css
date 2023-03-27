@@ -99,7 +99,17 @@
   width: 100%;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 1225px) {
+  .detail-container {
+    display: grid;
+    grid-template-columns: 4fr 4fr;
+    grid-template-rows: 5fr 5fr;
+    gap: 0.8rem;
+    width: 100%;
+    place-items: center;
+  }
+}
+@media screen and (max-width: 769px) {
   .detail-container {
     display: grid;
     grid-template-columns: 4fr 4fr;
@@ -110,7 +120,7 @@
   }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 769px) {
   .forecast-container {
     display: none;
   }
@@ -118,12 +128,12 @@
 
 .weather-container {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
-  align-items: flex-end;
   column-gap: 1rem;
   width: 100%;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 769px) {
   .weather-container {
     flex-direction: column;
     align-items: flex-start;
@@ -132,9 +142,17 @@
 
 .weather-detail {
   display: flex;
-  width: 100%;
+  width: 50%;
+  align-items: flex-end;
+  justify-content: flex-start;
+  column-gap: 2rem;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 1225px) {
+  .weather-detail {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 769px) {
   .weather-detail {
     justify-content: flex-start;
     align-items: center;
@@ -237,7 +255,7 @@ h1 {
 h2 {
   font-size: 2.6rem;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 769px) {
   h2 {
     font-size: 2.2rem;
   }
@@ -256,30 +274,34 @@ h5 {
 }
 
 .text1 {
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 700;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 769px) {
   .text1 {
     font-size: 2.4rem;
   }
 }
 
 .text2 {
-  font-size: 1.6rem;
+  font-size: 2.5rem;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 769px) {
   .text2 {
     font-size: 1.2rem;
   }
 }
 
 .text3 {
-  font-size: 1.4rem;
+  font-size: 2rem;
 }
 
 .text4 {
-  font-size: 1.2rem;
+  font-size: 1.6rem;
+}
+
+.text5 {
+  font-size: 1.4rem;
 }
 
 /*  ----------  ----------  Colors  ----------  ----------  */
@@ -301,6 +323,29 @@ h5 {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+/*  ----------  ----------  Loading   ----------  ----------  */
+.center-loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.custom-loader {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: conic-gradient(rgba(0, 0, 0, 0) 10%, #e7e7e7);
+  -webkit-mask: radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(100% - 8px), #000 0);
+  animation: s3 1s infinite linear;
+}
+
+@keyframes s3 {
+  to {
+    transform: rotate(1turn);
+  }
+}
 * {
   top: 0;
   margin: 0;
@@ -322,12 +367,24 @@ body {
   height: 100vh;
   padding: 3rem;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 769px) {
   body {
     padding: 0;
     height: 100vh;
     background-position: 90%;
   }
+}
+
+.noche {
+  background-image: url("/img/nightsky2.jpg") !important;
+}
+
+.dia {
+  background-image: url("/img/soleadonubes.jpg") !important;
+}
+
+.atardecer {
+  background-image: url("/img/atardecer.jpg") !important;
 }
 
 #root {
@@ -338,7 +395,7 @@ body {
   width: 100%;
   height: 100%;
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 769px) {
   #root {
     justify-content: flex-start;
   }
@@ -348,7 +405,7 @@ body {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
   width: 60%;
   height: 90%;
@@ -358,7 +415,7 @@ body {
   border-radius: 20px;
   box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.75);
 }
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 769px) {
   .bgContainer {
     width: 95%;
     height: 95vh;

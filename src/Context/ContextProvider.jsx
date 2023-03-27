@@ -47,6 +47,7 @@ const ContextProvider = ({children}) => {
                     temp : data.main.temp.toFixed(1),
                     maxTemp : data.main.temp_max.toFixed(1),
                     minTemp : data.main.temp_min.toFixed(1),
+                    feels : data.main.feels_like.toFixed(1),
                     windSpeed : (data.wind.speed * 3.6).toFixed(1),
                     windDir : data.wind.deg,
                     humidity : data.main.humidity,
@@ -88,8 +89,6 @@ const ContextProvider = ({children}) => {
 
 
         const getIconPath = (code) => {
-        //   const group = `${Math.floor(code / 100)}xx`;
-        //   console.log(group);
           const icon = iconMap[code];
           console.log(icon);
           if (icon) {
@@ -104,12 +103,11 @@ const ContextProvider = ({children}) => {
     }, [coords.location, dataWeather.iconCode, dataWeather.windDir]);
 
 
-    //Se define el valor del contexto y se lo pasa como value en el Provider
+    
     const dataValue = {
         data: dataWeather,
         icon: icon,
-        compass: compass,
-        // dataForecast: dataForecast,
+        compass: compass
     }
     
     

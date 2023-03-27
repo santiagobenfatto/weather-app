@@ -10,16 +10,17 @@ const Weather = () => {
     
     
     return (
-           <div className='weather-container'>
-                <p className='text1'>{data.temp}°</p>
-                <div className="weather-detail">
-                    <h2>Buenos Aires</h2>
-                    <div className='flex vertical center m1 evenly'>
-                    <img src={`${iconURL}`} alt="Sunny Day" className='img-icon'/>
-                    <p className='text4'>{data.message}</p>
-                    </div>
+        <div className='weather-container'>
+            <p className='text1'>{data.feels}°<span className='text2'>C feels</span></p>
+            <div className="weather-detail">
+                <h2>Buenos Aires</h2>
+                <div className='flex vertical center m1 evenly'>
+                <img src={`${iconURL}`} alt="Sunny Day" className='img-icon'/>
+                <p className='text5'>{data.message}</p>
                 </div>
-           </div>
+            </div>
+        </div>
+        
     );
 }
 
