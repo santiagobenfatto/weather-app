@@ -23,7 +23,7 @@ const ClockDisplay = () => {
 
         
         const meses = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-        const semanaDias = ['Sunday', 'Mondat', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+        const semanaDias = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
         
         setDayAndMonth({
             mesActual: (meses[date.mes]),
