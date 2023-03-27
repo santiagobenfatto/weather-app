@@ -1,3 +1,0 @@
-
-Extraer info para el hook del timer
-https://codesandbox.io/s/recursing-hooks-jc6w3v?file=/src/useTimer.js
